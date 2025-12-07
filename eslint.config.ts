@@ -63,6 +63,12 @@ export default tseslint.config([
       'no-throw-literal': 'error',    // Запрет выбрасывать не-Error объекты
 
       // -------------------------
+      // No console
+      // -------------------------
+      'no-console': ['warn', { allow: ['warn', 'error'] }],
+      'no-alert': 'error',
+
+      // -------------------------
       // Vue: безопасность
       // -------------------------
       'vue/no-v-html': 'warn',                                // Предупреждение при использовании v-html (XSS)
