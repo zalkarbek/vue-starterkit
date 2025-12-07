@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# запускаем автофикс staged файлов перед пушем
+.git-hooks/fix.sh staged || exit $?
+
+# другие проверки перед push, например тесты
+# .git-hooks/test.sh || exit $?
+
+exit 0

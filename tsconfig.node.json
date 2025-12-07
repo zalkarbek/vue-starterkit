@@ -1,0 +1,52 @@
+{
+  "compilerOptions": {
+
+    // -------------------------
+    // Build info & output
+    // -------------------------
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo", // Кэширование информации для ускорения сборки
+    "noEmit": true, // Не генерировать JS, только проверка типов
+
+    // -------------------------
+    // JavaScript target & libraries
+    // -------------------------
+    "target": "ES2023", // Версия JS, которую генерирует TS
+    "lib": ["ES2023"],  // Современные возможности JS
+    "types": ["node"],  // Глобальные типы Node.js
+
+    // -------------------------
+    // Module system & resolution
+    // -------------------------
+    "module": "ESNext",                   // Используем современную систему модулей
+    "moduleResolution": "nodenext",       // Резолв модулей по Node.js ESM логике
+    "allowImportingTsExtensions": true,   // Разрешает импорты с расширением .ts/.mts/.cts
+    "allowSyntheticDefaultImports": true, // Для удобного импорта CommonJS модулей
+    "esModuleInterop": true,
+    "verbatimModuleSyntax": true,         // Не изменяет import/export синтаксис
+    "moduleDetection": "force",           // Принудительно определяет файлы как модули
+    "resolveJsonModule": true,            // Разрешает import *.json
+    "skipLibCheck": true,                 // Пропуск проверки типов в node_modules
+
+    // -------------------------
+    // Linting & strict type checking
+    // -------------------------
+    "strict": true,                       // Включить строгий режим
+    "alwaysStrict": true,                 // Добавлять "use strict" во все файлы
+    "strictNullChecks": true,             // Проверка на null/undefined
+    "erasableSyntaxOnly": true,           // Проверка на "легко удаляемые" конструкции
+    "noUnusedLocals": true,               // Ошибки при неиспользуемых переменных
+    "noUnusedParameters": true,           // Ошибки при неиспользуемых параметрах
+    "noImplicitAny": true,                // Ошибки при неявном any
+    "noFallthroughCasesInSwitch": true,   // Ошибки при пропущенном break в switch
+    "noUncheckedSideEffectImports": true  // Ошибки при импортах с побочными эффектами без использования
+  },
+
+  // -------------------------
+  // Included files
+  // -------------------------
+  "include": [
+    "vite.config.ts",
+    "vitest.config.ts",
+    "eslint.config.ts"
+  ]
+}

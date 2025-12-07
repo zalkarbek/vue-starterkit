@@ -1,0 +1,62 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.dom.json",
+  "compilerOptions": {
+
+    // -------------------------
+    // Source maps & debugging
+    // -------------------------
+    "sourceMap": true,          // Генерировать .map файлы для дебага
+    "inlineSources": true,      // Вставлять исходный TS код внутрь .map
+
+    // -------------------------
+    // Module resolution & targets
+    // -------------------------
+    "target": "ES2023",             // Версия JS, которую будет генерировать TS
+    "module": "ESNext",             // Использовать современную систему модулей (import/export)
+    "moduleResolution": "bundler",  // Разрешение модулей через бандлер (Vite/Rollup)
+    "paths": {                      // Алиасы для удобных импортов
+      "@/*": ["src/*"]
+    },
+
+    // -------------------------
+    // Build info & Types & Lib
+    // -------------------------
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",  // Кэш информации для ускорения сборки
+    "types": ["vite/client", "vitest/globals", "vue"],                  // Глобальные типы для Vite, Vitest, Vue
+    "lib": [
+      "ES2023",          // Современные возможности JS
+      "DOM",             // Типы браузера (document, window)
+      "DOM.Iterable"     // Поддержка итерируемых DOM коллекций (NodeList, HTMLCollection)
+    ],
+
+    // -------------------------
+    // Module interoperability & JSX
+    // -------------------------
+    "skipLibCheck": true,                 // Пропуск проверки типов в node_modules
+    "resolveJsonModule": true,            // Разрешает import *.json
+    "jsx": "preserve",                    // Для Vue TSX/JSX сохранять синтаксис
+    "noEmit": true,                       // Не генерировать js файлы, только проверка типов
+    "allowImportingTsExtensions": true,   // импорт файлов TypeScript с явным расширением .ts или .tsx
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true, // Для удобного импорта CommonJS модулей
+
+    // -------------------------
+    // Linting & strict type checking
+    // -------------------------
+    "strict": true,                       // Включить строгий режим
+    "alwaysStrict": true,                 // Добавлять "use strict" во все файлы
+    "strictNullChecks": true,             // Проверка на null/undefined
+    "erasableSyntaxOnly": true,           // Проверка на "легко удаляемые" конструкции
+    "noUnusedLocals": true,               // Ошибки при неиспользуемых переменных
+    "noUnusedParameters": true,           // Ошибки при неиспользуемых параметрах
+    "noImplicitAny": true,                // Ошибки при неявном any
+    "noFallthroughCasesInSwitch": true,   // Ошибки при пропущенном break в switch
+    "noUncheckedSideEffectImports": true  // Ошибки при импортах с побочными эффектами без использования
+  },
+
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue"
+  ]
+}
